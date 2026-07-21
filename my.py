@@ -237,4 +237,4 @@ def editItem(item_id):
     return render_template("edit.html", idd=item_id)
 
 
-app.run(debug = True)
+app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=True)
