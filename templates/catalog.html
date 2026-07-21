@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+<body>
+  <header>
+    <nav>
+        <ul class="txtColor">
+        {%if not logged_in%}
+        <li><a href="/" id="register-link">Реєстрація</a></li>
+        <!-- <li><a href="/" id="login-link">Вхід</a></li> -->
+        {%elif logged_in%}
+        <li><a href="/seller">Sell</a></li>
+        <li><a href="/exit">Exit</a></li>
+        {%endif%}
+      </ul>
+    </nav>
+  </header>
+<div class="products">
+
+        {% for product in products %}
+
+        <div class="card">
+
+            <img src="{{ product.image_url }}">
+
+            <h3>{{ product.product_name }}</h3>
+
+            <p>{{ product.price }} грн</p>
+
+            {% if logged_in %}
+            <a href="/order_product/{{ product.id }}">
+                <button>Order</button>
+            </a>
+            {% else %}
+            <a href="/">
+                <button>Order</button>
+            </a>
+            {% endif %}
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+</body>
+</html>

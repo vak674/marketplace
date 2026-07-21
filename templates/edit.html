@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Edit page {{idd}}</h1>
+
+        <form method="POST" action="/edit/{{idd}}">
+
+        <label>Ім’я користувача:</label>
+        <input type="text" name="username" required>
+
+        <br><br>
+
+        <label>Пароль:</label>
+        <input type="password" name="password" required>
+
+        <br><br>
+
+        <button type="submit">Зберегти</button>
+
+    </form>
+</body>
+</html>
